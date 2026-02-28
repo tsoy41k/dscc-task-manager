@@ -1,0 +1,15 @@
+<h1>My Tasks</h1>
+
+<a href="/create/">Create Task</a>
+
+<ul>
+    {% for task in tasks %}
+        <li>
+            {{ task.title }} - {{ task.completed }}
+            <a href="/update/{{ task.id }}/">Update</a>
+            <a href="/delete/{{ task.id }}/">Delete</a>
+        </li>
+    {% empty %}
+        <li>No tasks yet.</li>
+    {% endfor %}
+</ul>
