@@ -12,7 +12,7 @@ from django import forms
 class TaskForm(forms.ModelForm):
     class Meta:
         model = Task
-        fields = ['title', 'description', 'completed']
+        fields = ['title', 'description', 'completed', 'category', 'tags']
 
 
 @login_required
@@ -23,6 +23,7 @@ def create_task(request):
             task = form.save(commit=False)
             task.user = request.user
             task.save()
+            form.save_m2m()
             return redirect('task_list')
     else:
         form = TaskForm()

@@ -5,7 +5,28 @@
 <ul>
     {% for task in tasks %}
         <li>
-            {{ task.title }} - {{ task.completed }}
+            <strong>{{ task.title }}</strong><br>
+
+            Description: {{ task.description }}<br>
+
+            Completed: {{ task.completed }}<br>
+
+            Category:
+            {% if task.category %}
+                {{ task.category.name }}
+            {% else %}
+                No category
+            {% endif %}
+            <br>
+
+            Tags:
+            {% for tag in task.tags.all %}
+                {{ tag.name }}{% if not forloop.last %}, {% endif %}
+            {% empty %}
+                No tags
+            {% endfor %}
+            <br><br>
+
             <a href="/update/{{ task.id }}/">Update</a>
             <a href="/delete/{{ task.id }}/">Delete</a>
         </li>
