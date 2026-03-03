@@ -49,3 +49,20 @@ def update_task(request, task_id):
         form = TaskForm(instance=task)
 
     return render(request, 'tasks/update_task.html', {'form': form})
+
+
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import login
+
+
+def register(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect('task_list')
+    else:
+        form = UserCreationForm()
+
+    return render(request, 'tasks/register.html', {'form': form})

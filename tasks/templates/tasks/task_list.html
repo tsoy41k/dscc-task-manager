@@ -1,4 +1,13 @@
+<p>
+    Logged in as {{ request.user.username }} |
+    <form method="post" action="{% url 'logout' %}" style="display:inline;">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+    </form>
+</p>
+
 <h1>My Tasks</h1>
+
 
 <a href="/create/">Create Task</a>
 
