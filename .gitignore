@@ -12,3 +12,5 @@ media/
 .DS_Store
 .idea/
 .vscode/
+db_old.sqlite3
+*.sqlite3
