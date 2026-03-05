@@ -11,6 +11,9 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    env:
+      CI: true
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -50,6 +53,3 @@ jobs:
       - name: Push Docker image
         run: |
           docker push tsoy41k/dscc-task-manager:latest
-          
-        env:
-        CI: true
