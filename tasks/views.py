@@ -3,9 +3,6 @@ from django.contrib.auth.decorators import login_required
 from .models import Task
 
 
-from django.contrib.auth.models import User
-
-
 @login_required
 def task_list(request):
     tasks = Task.objects.filter(user=request.user)
