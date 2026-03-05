@@ -5,12 +5,6 @@ from .models import Task
 
 from django.contrib.auth.models import User
 
-User.objects.create_superuser(
-    username="Nikita",
-    email="admin@test.com",
-    password="00016623"
-)
-
 
 @login_required
 def task_list(request):
