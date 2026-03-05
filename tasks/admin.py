@@ -4,4 +4,3 @@ from .models import Task, Category, Tag
 admin.site.register(Task)
 admin.site.register(Category)
 admin.site.register(Tag)
-    
