@@ -50,3 +50,6 @@ jobs:
       - name: Push Docker image
         run: |
           docker push tsoy41k/dscc-task-manager:latest
+          
+        env:
+        CI: true
