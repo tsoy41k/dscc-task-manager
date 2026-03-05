@@ -32,6 +32,9 @@ jobs:
           pip install flake8
           flake8 .
 
+      - name: Run migrations
+        run: python manage.py migrate
+
       - name: Run Django check
         run: |
           python manage.py check
