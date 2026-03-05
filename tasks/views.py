@@ -2,12 +2,15 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .models import Task
 
+
 @login_required
 def task_list(request):
     tasks = Task.objects.filter(user=request.user)
     return render(request, 'tasks/task_list.html', {'tasks': tasks})
 
+
 from django import forms
+
 
 class TaskForm(forms.ModelForm):
     class Meta:
@@ -28,6 +31,7 @@ def create_task(request):
     else:
         form = TaskForm()
     return render(request, 'tasks/create_task.html', {'form': form})
+
 
 @login_required
 def delete_task(request, task_id):
